@@ -34,7 +34,7 @@ const social = [
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/dominick-j-monaco/",
   },
   {
     name: "X",
@@ -44,7 +44,7 @@ const social = [
   {
     name: "Email",
     icon: "email",
-    link: "mailto:example@gmail.com",
+    link: "mailto:dominick.monaco2@gmail.com",
   },
 ];
 
@@ -52,10 +52,10 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Design engineer and builder</>,
+  headline: <>Software Engineer and builder.</>,
   subline: (
     <>
-      I'm Dominick, a fullstack engineer at{" "}
+      I'm Dominick, a community oriented fullstack engineer at{" "}
       <InlineCode>GridIron Survivor</InlineCode>, where I'm building the next
       generation of NFL survivor pools.
       <br /> After hours, I build my own projects.
@@ -105,7 +105,7 @@ const about = {
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
+            src: "/images/projects/project-01/gis-homepage.png",
             alt: "Once UI Project",
             width: 16,
             height: 9,
@@ -115,7 +115,7 @@ const about = {
       {
         company: "Freelance",
         timeframe: "2023 - 2024",
-        role: "Lead Designer",
+        role: "Fullstack Developer",
         achievements: [
           <>
             Built a fullstack proof of concept MVP including Stripe Integration,
@@ -130,20 +130,7 @@ const about = {
       },
     ],
   },
-  studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
-    institutions: [
-      {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
-    ],
-  },
+
   technical: {
     display: true, // set to false to hide this section
     title: "Technical skills",
