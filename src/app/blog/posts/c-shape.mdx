@@ -1,0 +1,250 @@
+---
+title: "C-Shape Problem in React"
+publishedAt: "2025-01-10"
+image: "/images/gallery/img-12.jpg"
+summary: "A deep dive into the C-shape problem, a common front-end React problem encountered in FANG interviews."
+tag: "Journal"
+---
+
+# Kicking things off!
+
+Welcome to the first entry in my new blog post series, where I'm taking a leaf out of [Brian Douglas](https://x.com/bdougieYO)'s hat from [OpenSauced](https://opensauced.pizza/). I'll be diving into the world of LeetCode style interview questions, sharing my experiences and solutions from problems I've seen across the interview process. Today, we're kicking off with a common front-end React problem I encountered in a recent FANG interview: the C-shape problem.
+
+## What's the C-Shape Problem?
+
+The C-shape problem is deceptively simple at first glance. It's a coding challenge where you're tasked with replicating the functionality of a web layout designed in the shape of a 'C'. There are seven clickable boxes arranged with three in the top row, one aligned to the left in the middle, and three more at the bottom. On click, each button's background is changed, and once all the boxes are clicked they return to their un-selected state one-by-one in the order they were clicked. It's a classic front-end conundrum that's trickier than it looks.
+
+![](https://i.imgur.com/tINIz6N.gif align="center")
+
+## Breaking Down the Code
+
+Let's walk through the code and break it down into manageable steps. We'll start by setting up the basic layout.
+
+### The Layout
+
+Here's the basic structure of our JSX. If you look closely, you'll notice something interesting. The `<Box/>` components are not native, they are custom components! We''ll touch on that later, what's important now is that box components have two css classes that interact with them: `.box` and `.isClicked`
+
+```javascript
+return (
+  <div className="container">
+    <div className="row">
+      <Box
+        id={1}
+        onClick={handleBoxClick}
+        isClicked={clickedBoxes.includes(1)}
+      />
+      <Box
+        id={2}
+        onClick={handleBoxClick}
+        isClicked={clickedBoxes.includes(2)}
+      />
+      <Box
+        id={3}
+        onClick={handleBoxClick}
+        isClicked={clickedBoxes.includes(3)}
+      />
+    </div>
+    <div className="row">
+      <Box
+        id={4}
+        onClick={handleBoxClick}
+        isClicked={clickedBoxes.includes(4)}
+      />
+    </div>
+    <div className="row">
+      <Box
+        id={5}
+        onClick={handleBoxClick}
+        isClicked={clickedBoxes.includes(5)}
+      />
+      <Box
+        id={6}
+        onClick={handleBoxClick}
+        isClicked={clickedBoxes.includes(6)}
+      />
+      <Box
+        id={7}
+        onClick={handleBoxClick}
+        isClicked={clickedBoxes.includes(7)}
+      />
+    </div>
+  </div>
+);
+```
+
+#### CSS
+
+Here's our CSS file. We have a handful of classes we're worrying about:
+
+- .**container** for defining how all of our rows look
+- **.row** for defining how each row is styled
+- **.box** sets the width, height, and border for each box; among other things.
+- **.isClicked** is a class thats added into our `<Box>` components once selected.
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.box {
+  width: 5rem;
+  height: 5rem;
+  border: 1px solid #9a1e1e;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 1rem;
+}
+
+.clicked {
+  background-color: #3b82f6;
+}
+```
+
+### Managing Clicks with State
+
+State is crucial here—it helps us keep track of which boxes have been clicked and manage the component's resetting to its default state.
+
+Here we define two state variables. The former is defined as an array, the latter as a boolean. We'll be storing the boxes that are clicked, in order by their respective id's, here in `setClickedBoxes`. The other state variable we have is `isResetting`, which is basically an on/off switch. Did we click all the boxes? Do we want to reset all the selected boxes? Resetting is `true`.
+
+```javascript
+//defining our state variables
+const [clickedBoxes, setClickedBoxes] = useState([]);
+const [isResetting, setIsResetting] = useState(false);
+```
+
+---
+
+### Handling a Click
+
+Below is our logic for handling a click event. Lets break it down[👇](https://emojipedia.org/backhand-index-pointing-down)
+
+```javascript
+//defining our state variables
+const [clickedBoxes, setClickedBoxes] = useState([]);
+const [isResetting, setIsResetting] = useState(false);
+
+//defining the function that handles our 'clicking' logic
+const handleBoxClick = (boxId) => {
+  if (isResetting) return;
+
+  setClickedBoxes((prev) => {
+    const newClickedBoxes = [...prev, boxId];
+    if (newClickedBoxes.length === 7) {
+      setIsResetting(true);
+    }
+    return newClickedBoxes;
+  });
+};
+```
+
+**Above** we have:
+
+- a condition to check if `isResetting` is true.
+- If `isResetting` is true, we don't track any clicks.
+- We define a new variable `newClickedBoxes` in our setting logic
+- we add in the clicked elements `id` to our existing array of clicked boxes
+- If `newClickBoxes.length` equals seven, we've clicked all the boxes, and it's time to reset.
+
+We declare that `isResetting` is true and return our array of `boxId`'s. How do we handle the logic for when we reset our boxes to our initial, blank state though? That's where the `useEffect` hook comes in.
+
+### The Magic of useEffect
+
+We can leverage `useEffect` kick off the resetting process. When `isResetting` is true, we define a `timeouts` variable. This variable maps our clicked boxes, taking the box ID and its index. We then set a timeout for each box, filtering through our `setClickBoxes` array by ID. If the index equals `clickBox.length - 1`, we're done resetting and set `isResetting` to false. We've set the timeout to the current index multiplied by 300 milliseconds, creating a staggered reset effect.
+
+```javascript
+useEffect(() => {
+  if (isResetting) {
+    const resetDelay = 200;
+    const timeouts = clickedBoxes.map((id, index) =>
+      setTimeout(() => {
+        setClickedBoxes((prev) => prev.filter((boxId) => boxId !== id));
+        if (index === clickedBoxes.length - 1) setIsResetting(false);
+      }, resetDelay * (index + 1))
+    );
+
+    return () => {
+      timeouts.forEach(clearTimeout);
+    };
+  }
+}, [isResetting, clickedBoxes]);
+```
+
+For cleanup, we have an anonymous function that clears each timeout. The dependency array for this effect includes `isResetting` and `clickBoxes`.
+
+### Crafting the Box Component
+
+The final piece of the puzzle is the box component. It takes an object with an ID, an `onClick` handler, and an `isClicked` state. We dynamically define the class name using a template literal and a ternary operator. If `isClicked` is true, we append the `isClicked` class; if not, we leave it be. This allows us to dynamically render CSS based on the `isClicked` state.
+
+```javascript
+const Box = ({ id, onClick, isClicked }) => (
+  <div
+    className={`box ${isClicked ? "clicked" : ""}`}
+    onClick={() => onClick(id)}
+  />
+);
+```
+
+To further optimize, we could use the `useCallback` hook to memoize the box component, ensuring it only re-renders when necessary.
+
+## Optimization with useCallback.
+
+### useCallback & Memoize
+
+We can refactor our useEffect logic using the React hook `useCallback` and memoize the box component to ensure it won't needlessly re-render. Not a strict must for this particular code, but it showcases you understand how to leverage react hooks to handle state more efficiently.
+
+Here we can leverage `useCallback` in the `handleBoxClick` function. We pass in `isResetting` into the dependency array so that a re-render of any components using `handleBoxClick` is triggered **_only when_** `isResseting` changes value (from false to true).
+
+```javascript
+const handleBoxClick = useCallback(
+  (boxId) => {
+    const handleBoxClick = useCallback(
+      (boxId) => {
+        if (isResetting) return;
+
+        setClickedBoxes((prev) => {
+          const newClickedBoxes = [...prev, boxId];
+          if (newClickedBoxes.length === 7) {
+            setIsResetting(true);
+            const resetDelay = 200;
+            newClickedBoxes.forEach((id, index) => {
+              setTimeout(() => {
+                setClickedBoxes((prev) => prev.filter((boxId) => boxId !== id));
+                if (index === 6) setIsResetting(false);
+              }, resetDelay * (index + 1));
+            });
+          }
+          return newClickedBoxes;
+        });
+      },
+      [isResetting]
+    );
+  },
+  [isResetting]
+);
+```
+
+We can also reproduce similar functionality with our Box component. Using `React.memo` ensures that box components only trigger a re-render when their props, in this case `id`; `onClick`; or `isClicked` , change. While this see's little effect in our coding test, if you imagine a box component in a large repo, where it can be re-used in potentially many places and inside many other components or containers, ensuring that the `<Box/>` component and `handleClick` function re-render only when relevant they're supposed to is good, and scalable, implementation. It saves you, and many others, time later on.
+
+```javascript
+const Box = React.memo(({ id, onClick, isClicked }) => (
+  // Component JSX
+));
+```
+
+## Wrapping Up
+
+And there you have it—a step-by-step breakdown of tackling the C-shape problem in React. It's a great example of how a simple task can teach you a lot about state management, effects, and component rendering. Stay tuned for more posts as I continue to explore and implement interview questions, sharing my insights along the way.
+
+Don't forget to check out the code here: [CodeSandbox](https://codesandbox.io/p/sandbox/c-shape-for-blog-l44xz5).
+
+Happy coding!
