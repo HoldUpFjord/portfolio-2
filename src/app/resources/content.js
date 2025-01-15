@@ -58,7 +58,12 @@ const home = {
       I'm Dominick, a community oriented fullstack engineer at{" "}
       <InlineCode>GridIron Survivor</InlineCode>, where I'm building the next
       generation of NFL survivor pools.
-      <br /> After hours, I build my own projects.
+      <br /> After hours, I'm working on{" "}
+      <a href="https://github.com/Solitude-Software-Solutions/OstrichDB">
+        {" "}
+        OstrichDB
+      </a>
+      .
     </>
   ),
 };
