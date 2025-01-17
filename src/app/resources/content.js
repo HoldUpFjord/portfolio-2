@@ -7,7 +7,7 @@ const person = {
     return `${this.firstName} ${this.lastName}`;
   },
   role: "Software Engineer",
-  avatar: "/images/ProfilePicWhite.png",
+  avatar: "/images/profile-pictures/ProfilePicWhite.png",
   location: "America/New_York", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: [], // optional: Leave the array empty if you don't want to display languages
 };
@@ -29,22 +29,27 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/HoldUpFjord",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/dominick-j-monaco/",
+  },
+  {
+    name: "BlueSky",
+    icon: "butterfly",
+    link: "https://bsky.app/profile/dominick-j-monaco.bsky.social",
   },
   {
     name: "X",
     icon: "x",
-    link: "",
+    link: "https://x.com/DominickJMonaco",
   },
   {
     name: "Email",
     icon: "email",
-    link: "mailto:example@gmail.com",
+    link: "mailto:dominick.monaco2@gmail.com",
   },
 ];
 
@@ -52,13 +57,18 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Design engineer and builder</>,
+  headline: <>Software Engineer and builder.</>,
   subline: (
     <>
-      I'm Dominick, a fullstack engineer at{" "}
+      I'm Dominick, a community oriented fullstack engineer at{" "}
       <InlineCode>GridIron Survivor</InlineCode>, where I'm building the next
       generation of NFL survivor pools.
-      <br /> After hours, I build my own projects.
+      <br /> After hours, I'm working on{" "}
+      <a href="https://github.com/Solitude-Software-Solutions/OstrichDB">
+        {" "}
+        OstrichDB
+      </a>
+      .
     </>
   ),
 };
@@ -76,7 +86,7 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/dominickjmonaco",
   },
   intro: {
     display: true,
@@ -101,12 +111,16 @@ const about = {
           <>
             Won an internal hackathon with a AI-powered Secret Santa product.
           </>,
+          <>
+            Implemented new features and expanded clean code across the
+            codebase.
+          </>,
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
+            src: "/images/projects/project-01/gis-homepage.png",
+            alt: "GridIron Survivor",
             width: 16,
             height: 9,
           },
@@ -115,7 +129,7 @@ const about = {
       {
         company: "Freelance",
         timeframe: "2023 - 2024",
-        role: "Lead Designer",
+        role: "Fullstack Developer",
         achievements: [
           <>
             Built a fullstack proof of concept MVP including Stripe Integration,
@@ -130,39 +144,29 @@ const about = {
       },
     ],
   },
-  studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
-    institutions: [
-      {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
-    ],
-  },
+
   technical: {
     display: true, // set to false to hide this section
     title: "Technical skills",
     skills: [
       {
-        title: "Typescript",
+        title: "Typescript/Javascript/Node.JS",
         description: (
-          <>Passionate about static-debugging tools and Type Safety. .</>
+          <>
+            Passionate about static-debugging tools and Type Safety on both
+            sides of the stack; frontend and backend.{" "}
+          </>
         ),
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
+            src: "/images/projects/project-01/uwell-dash.png",
             alt: "Project image",
             width: 16,
             height: 9,
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
+            src: "/images/projects/project-01/climate-update.jpg",
             alt: "Project image",
             width: 16,
             height: 9,
@@ -177,7 +181,7 @@ const about = {
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
+            src: "/images/projects/project-01/elfgorithm-completed.mp4",
             alt: "Project image",
             width: 16,
             height: 9,
@@ -190,7 +194,7 @@ const about = {
 
 const blog = {
   label: "Blog",
-  title: "Writing about design and tech...",
+  title: "Writing about tech and community...",
   description: `Read what ${person.name} has been up to recently`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
@@ -283,4 +287,5 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, blog, work };
+// gallery
