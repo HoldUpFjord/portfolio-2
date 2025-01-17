@@ -326,6 +326,7 @@ export default function About() {
                             height={image.height}
                           >
                             <SmartImage
+                              className="object-fit-cover"
                               enlarge
                               radius="m"
                               sizes={image.width.toString()}
