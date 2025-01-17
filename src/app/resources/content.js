@@ -7,7 +7,7 @@ const person = {
     return `${this.firstName} ${this.lastName}`;
   },
   role: "Software Engineer",
-  avatar: "/images/ProfilePicWhite.png",
+  avatar: "/images/profile-pictures/ProfilePicWhite.png",
   location: "America/New_York", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: [], // optional: Leave the array empty if you don't want to display languages
 };
@@ -29,7 +29,7 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/HoldUpFjord",
   },
   {
     name: "LinkedIn",
@@ -37,9 +37,14 @@ const social = [
     link: "https://www.linkedin.com/in/dominick-j-monaco/",
   },
   {
+    name: "BlueSky",
+    icon: "butterfly",
+    link: "https://bsky.app/profile/dominick-j-monaco.bsky.social",
+  },
+  {
     name: "X",
     icon: "x",
-    link: "",
+    link: "https://x.com/DominickJMonaco",
   },
   {
     name: "Email",
@@ -105,6 +110,10 @@ const about = {
           <>Expanded test coverage by 10%.</>,
           <>
             Won an internal hackathon with a AI-powered Secret Santa product.
+          </>,
+          <>
+            Implemented new features and expanded clean code across the
+            codebase.
           </>,
         ],
         images: [
