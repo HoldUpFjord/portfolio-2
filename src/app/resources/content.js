@@ -12,16 +12,16 @@ const person = {
   languages: [], // optional: Leave the array empty if you don't want to display languages
 };
 
-const newsletter = {
-  display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: (
-    <>
-      I occasionally write about design, technology, and share thoughts on the
-      intersection of creativity and engineering.
-    </>
-  ),
-};
+// const newsletter = {
+//   display: true,
+//   title: <>Subscribe to {person.firstName}'s Newsletter</>,
+//   description: (
+//     <>
+//       I occasionally write about design, technology, and share thoughts on the
+//       intersection of creativity and engineering.
+//     </>
+//   ),
+// };
 
 const social = [
   // Links are automatically displayed.
@@ -133,7 +133,8 @@ const about = {
         achievements: [
           <>
             Built a fullstack proof of concept MVP including Stripe Integration,
-            Video chatm=, and activity feed features.
+            Video chat built on top of Zoom's Video SDK, and activity feed
+            features.
           </>,
           <>
             Refactored Shopify SPA's running on Native Web APIs. Decreased bug
