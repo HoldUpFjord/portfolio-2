@@ -81,7 +81,7 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/dominickjmonaco",
   },
   intro: {
     display: true,
@@ -111,7 +111,7 @@ const about = {
           // optional: leave the array empty if you don't want to display images
           {
             src: "/images/projects/project-01/gis-homepage.png",
-            alt: "Once UI Project",
+            alt: "GridIron Survivor",
             width: 16,
             height: 9,
           },
@@ -141,14 +141,17 @@ const about = {
     title: "Technical skills",
     skills: [
       {
-        title: "Typescript",
+        title: "Typescript/Javascript/Node.JS",
         description: (
-          <>Passionate about static-debugging tools and Type Safety. .</>
+          <>
+            Passionate about static-debugging tools and Type Safety on both
+            sides of the stack; frontend and backend.{" "}
+          </>
         ),
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
+            src: "/images/projects/project-01/uwell-dash.png",
             alt: "Project image",
             width: 16,
             height: 9,
@@ -182,7 +185,7 @@ const about = {
 
 const blog = {
   label: "Blog",
-  title: "Writing about design and tech...",
+  title: "Writing about tech and community...",
   description: `Read what ${person.name} has been up to recently`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
@@ -275,4 +278,5 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, blog, work };
+// gallery
