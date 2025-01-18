@@ -1,4 +1,4 @@
-const baseURL = "demo.once-ui.com";
+const baseURL = "localhost:3000"; // your domain name or localhos
 
 // default customization applied to the HTML in the main layout.tsx
 const style = {
@@ -26,7 +26,7 @@ const og = {
   title: "Once UI for Next.js",
   description: "We let designers code and developers design.",
   type: "website",
-  image: "/images/cover.jpg"
+  image: "/images/cover.jpg",
 };
 
 // default schema data
@@ -34,7 +34,8 @@ const schema = {
   logo: "",
   type: "Organization",
   name: "One UI",
-  description: "Once UI is an open-source design system and component library for Next.js.",
+  description:
+    "Once UI is an open-source design system and component library for Next.js.",
   email: "",
 };
 
