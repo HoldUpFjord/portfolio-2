@@ -1,4 +1,6 @@
-const baseURL = "localhost:3000"; // your domain name or localhos
+const baseURL = "dominickjmona.co"; // your domain name or localhost
+
+// const baseURL = "localhost:3000"; // your domain name or localhos
 
 // default customization applied to the HTML in the main layout.tsx
 const style = {
