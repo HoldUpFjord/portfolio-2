@@ -241,7 +241,7 @@ export default function About() {
                       </Text>
                       <Text
                         variant="heading-default-xs"
-                        onBackground="neutral-weak"
+                        onBackground="brand-medium"
                       >
                         {experience.timeframe}
                       </Text>
