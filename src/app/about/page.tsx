@@ -140,31 +140,33 @@ export default function About() {
             marginBottom="32"
           >
             {about.calendar.display && (
-              <Flex
-                fitWidth
-                border="brand-alpha-medium"
-                className={styles.blockAlign}
-                style={{
-                  backdropFilter: "blur(var(--static-space-1))",
-                }}
-                background="brand-alpha-weak"
-                radius="full"
-                padding="4"
-                gap="8"
-                marginBottom="m"
-                alignItems="center"
-              >
-                <Flex paddingLeft="12">
-                  <Icon name="calendar" onBackground="brand-weak" />
+              <a href={about.calendar.link}>
+                <Flex
+                  fitWidth
+                  border="brand-alpha-medium"
+                  className={styles.blockAlign}
+                  style={{
+                    backdropFilter: "blur(var(--static-space-1))",
+                  }}
+                  background="brand-alpha-weak"
+                  radius="full"
+                  padding="4"
+                  gap="8"
+                  marginBottom="m"
+                  alignItems="center"
+                >
+                  <Flex paddingLeft="12">
+                    <Icon name="calendar" onBackground="brand-weak" />
+                  </Flex>
+                  <Flex paddingX="8">Schedule a call</Flex>
+                  <IconButton
+                    href={about.calendar.link}
+                    data-border="rounded"
+                    variant="secondary"
+                    icon="chevronRight"
+                  />
                 </Flex>
-                <Flex paddingX="8">Schedule a call</Flex>
-                <IconButton
-                  href={about.calendar.link}
-                  data-border="rounded"
-                  variant="secondary"
-                  icon="chevronRight"
-                />
-              </Flex>
+              </a>
             )}
             <Heading className={styles.textAlign} variant="display-strong-xl">
               {person.name}
