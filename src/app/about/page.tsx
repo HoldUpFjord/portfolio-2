@@ -140,7 +140,7 @@ export default function About() {
             marginBottom="32"
           >
             {about.calendar.display && (
-              <a href={about.calendar.link}>
+              <a href={about.calendar.link} target="_blank">
                 <Flex
                   fitWidth
                   border="brand-alpha-medium"
