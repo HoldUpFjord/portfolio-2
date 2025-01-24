@@ -64,7 +64,10 @@ const home = {
       <InlineCode>GridIron Survivor</InlineCode>, where I'm building the next
       generation of NFL survivor pools.
       <br /> After hours, I'm working on{" "}
-      <a href="https://github.com/Solitude-Software-Solutions/OstrichDB">
+      <a
+        href="https://github.com/Solitude-Software-Solutions/OstrichDB"
+        target="_blank"
+      >
         {" "}
         OstrichDB
       </a>

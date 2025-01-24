@@ -7,6 +7,7 @@ import {
   Heading,
   SmartLink,
   Text,
+  Tag,
 } from "@/once-ui/components";
 
 interface ProjectCardProps {
@@ -18,6 +19,7 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  technologies: string[];
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -28,6 +30,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
+  technologies,
 }) => {
   return (
     <Flex fillWidth gap="m" direction="column">
@@ -47,10 +50,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         gap="l"
       >
         {title && (
-          <Flex flex={5}>
+          <Flex flex={5} direction="column" gap="16">
             <Heading as="h2" wrap="balance" variant="heading-strong-xl">
               {title}
             </Heading>
+            {technologies && technologies.length > 0 ? (
+              <Flex gap="8">
+                {technologies.map((tech) => (
+                  <Tag variant="neutral" size="m" label={tech}></Tag>
+                ))}
+              </Flex>
+            ) : null}
           </Flex>
         )}
         {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
@@ -74,7 +84,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={href}
                 >
-                  <Text variant="body-default-s">Check it out</Text>
+                  <Text variant="body-default-s">Check out the case study</Text>
                 </SmartLink>
               )}
               {link && (

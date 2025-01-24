@@ -8,6 +8,7 @@ export {
   mailchimp,
   baseURL,
 } from "@/app/resources/config";
+
 export {
   person,
   social,
@@ -16,4 +17,6 @@ export {
   about,
   blog,
   work,
+  // @ts-ignore
+  gallery,
 } from "@/app/resources/content";
