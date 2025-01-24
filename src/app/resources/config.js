@@ -1,4 +1,5 @@
-const baseURL = "demo.magic-portfolio.com";
+const baseURL = "dominickjmona.co"; // your domain name or localhost
+// const baseURL = "localhost:3000"; // your domain name or localhost
 
 const routes = {
   "/": true,

@@ -7,7 +7,7 @@ const person = {
     return `${this.firstName} ${this.lastName}`;
   },
   role: "Software Engineer",
-  avatar: "/images/profile-pictures/ProfilePicWhite.png",
+  avatar: "/images/profile-pictures/avatar.jpg",
   location: "America/New_York", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: [], // optional: Leave the array empty if you don't want to display languages
 };
@@ -136,7 +136,8 @@ const about = {
         achievements: [
           <>
             Built a fullstack proof of concept MVP including Stripe Integration,
-            Video chatm=, and activity feed features.
+            Video chat built on top of Zoom's Video SDK, and activity feed
+            features.
           </>,
           <>
             Refactored Shopify SPA's running on Native Web APIs. Decreased bug
@@ -211,84 +212,4 @@ const work = {
   // All projects will be listed on the /home and /work routes
 };
 
-const gallery = {
-  label: "Gallery",
-  title: "My photo gallery",
-  description: `A photo collection by ${person.name}`,
-  // Images from https://pexels.com
-  images: [
-    {
-      src: "/images/gallery/img-01.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-02.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-03.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-04.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-05.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-06.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-07.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-08.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-09.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-10.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-11.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-12.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-13.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-14.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-  ],
-};
-
 export { person, social, newsletter, home, about, blog, work };
-// gallery
