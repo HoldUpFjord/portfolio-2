@@ -145,6 +145,37 @@ const about = {
         ],
         images: [],
       },
+      {
+        company: "Disco",
+        timeframe: "2023 - 2023",
+        role: "Fullstack Web Developer",
+        achievements: [
+          <>
+            Contributed 5 components to a gen-ai product in the newsletter
+            space.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Protect our Winter UK",
+        timeframe: "2023 - 2023",
+        role: "Fullstack Developer",
+        achievements: [
+          <>
+            Saved the company $500 a month by migrating hosting providers from
+            Vercel to AWS.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "100Devs",
+        timeframe: "2022 - 2022",
+        role: "Software engineer",
+        achievements: [<>Built 20+ static web pages for clients.</>],
+        images: [],
+      },
     ],
   },
 
