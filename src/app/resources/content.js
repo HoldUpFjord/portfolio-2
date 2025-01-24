@@ -110,14 +110,13 @@ const about = {
         timeframe: "2024 - Present",
         role: "Web Engineer",
         achievements: [
-          <>Expanded test coverage by 10%.</>,
           <>
-            Won an internal hackathon with a AI-powered Secret Santa product.
+            Collaborated with a cross-functional team of 10, including
+            developers and designers, to improve UX and test coverage.
           </>,
-          <>
-            Implemented new features and expanded clean code across the
-            codebase.
-          </>,
+          <>Improved UI to increase user rentention rates on platform.</>,
+          <>Expanded Unit Test coverage by 15% in Jest.</>,
+          <>Refactored sidebar list items into reusable components.</>,
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
